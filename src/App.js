@@ -42,6 +42,9 @@ function App() {
                 <p className="mb-0">
                   <b>population</b> <br /> {planet.population}
                 </p>
+                <p className="mb-0">
+                  <b>climat</b> <br /> {planet.climate}
+                </p>
               </article>
             </div>
           );

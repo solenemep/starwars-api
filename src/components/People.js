@@ -36,7 +36,7 @@ const People = () => {
       <div className="row">
         {peoples.map((people) => {
           return (
-            <div key={people.name} className="col-md-6  col-lg-4 col-xl-3 mb-4">
+            <div key={people.name} className="col-md-6 col-lg-4 col-xl-3 mb-4">
               <article className="bg-primary p-3">
                 <h2 className="h5">{people.name}</h2>
                 <p className="mb-0">

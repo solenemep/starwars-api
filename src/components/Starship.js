@@ -24,7 +24,7 @@ const Starship = () => {
       .then((data) => {
         console.log(data);
         setLoading(false);
-        setStarships(peoples => [...starships, ...data.results]);
+        setStarships(starships => [...starships, ...data.results]);
         setHasNext(!!data.next);
       })
       .catch((error) => console.log(error.message));
@@ -36,7 +36,7 @@ const Starship = () => {
       <div className="row">
         {starships.map((starship) => {
           return (
-            <div key={starship.name} className="col-md-6  col-lg-4 col-xl-3 mb-4">
+            <div key={starship.name} className="col-md-6 col-lg-4 col-xl-3 mb-4">
               <article className="bg-danger p-3">
                 <h2 className="h5">{starship.name}</h2>
                 <p className="mb-0">

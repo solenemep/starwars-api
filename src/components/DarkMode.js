@@ -27,7 +27,7 @@ const DarkMode = (props) => {
   const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem('starWarsDarkMode')) || false)
 
   useEffect(() => {
-    localStorage.setItem("starWarsDarkMode", JSON.stringify(darkMode))
+    localStorage.setItem("starWarsDarkMode", JSON.stringify(darkMode), [darkMode])
   }
   )
 

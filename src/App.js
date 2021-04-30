@@ -6,11 +6,15 @@ import Select from './components/Select'
 import React, { useState, useEffect } from 'react'
 
 function App() {
-  const [api, setApi] = useState("planets")
+  const [api, setApi] = useState(JSON.parse(localStorage.getItem('starWarsApi')) || 'planets')
 
   const selectApi = (event) => {
     setApi(event.target.value)
   }
+  useEffect(() => {
+    localStorage.setItem("starWarsApi", JSON.stringify(api), [api])
+  }
+  )
 
   return (
     <DarkMode>

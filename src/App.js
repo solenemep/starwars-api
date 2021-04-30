@@ -1,4 +1,5 @@
 import DarkMode from './components/DarkMode'
+import Film from './components/Film'
 import Planet from './components/Planet'
 import People from './components/People'
 import Starship from './components/Starship'
@@ -20,6 +21,7 @@ function App() {
     <DarkMode>
       <section className="container py-5">
         <Select selectApi={selectApi} />
+        {api === "films" && (<Film />)}
         {api === "planets" && (<Planet />)}
         {api === "peoples" && (<People />)}
         {api === "starships" && (<Starship />)}

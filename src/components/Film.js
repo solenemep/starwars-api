@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
-const Planet = () => {
-  const [planets, setPlanets] = useState([]);
+const Film = () => {
+  const [films, setFilms] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasNext, setHasNext] = useState(true);
@@ -12,7 +12,7 @@ const Planet = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://swapi.dev/api/planets/?page=${page}`)
+    fetch(`https://swapi.dev/api/films/?page=${page}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -24,7 +24,7 @@ const Planet = () => {
       .then((data) => {
         console.log(data);
         setLoading(false);
-        setPlanets(planets => [...planets, ...data.results]);
+        setFilms(films => [...films, ...data.results]);
         setHasNext(!!data.next);
       })
       .catch((error) => console.log(error.message));
@@ -32,18 +32,18 @@ const Planet = () => {
 
   return (
     <React.Fragment>
-      <h1 className="mb-5">Planets in Star Wars universe</h1>
+      <h1 className="mb-5">Films of Star Wars</h1>
       <div className="row">
-        {planets.map((planet) => {
+        {films.map((film) => {
           return (
-            <div key={planet.name} className="col-md-6 col-lg-4 col-xl-3 mb-4">
-              <article className="bg-warning p-3">
-                <h2 className="h5">{planet.name}</h2>
+            <div key={film.episode_id} className="col-md-6 col-lg-4 col-xl-3 mb-4">
+              <article className="bg-secondary p-3">
+                <h2 className="h5">{film.title}</h2>
                 <p className="mb-0">
-                  <b>population</b> <br /> {planet.population}
+                  <b>episode</b> <br /> {film.episode_id}
                 </p>
                 <p className="mb-0">
-                  <b>climat</b> <br /> {planet.climate}
+                  <b>release date</b> <br /> {film.release_date}
                 </p>
               </article>
             </div>
@@ -65,8 +65,8 @@ const Planet = () => {
           </button>
         )
       }
-      { !hasNext && <p className="bg-dark text-white p-3">We have listed all planets.</p>}
+      { !hasNext && <p className="bg-dark text-white p-3">We have listed all films.</p>}
 
     </React.Fragment>)
 }
-export default Planet
+export default Film

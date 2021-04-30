@@ -18,7 +18,7 @@ const People = () => {
           return response.json();
         }
         throw new Error(
-          "Nous n'avons pas pu récupérer des informations requises."
+          "We could not get informations."
         );
       })
       .then((data) => {

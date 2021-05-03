@@ -39,7 +39,7 @@ const DarkMode = (props) => {
     <main className={darkMode ? "bg-dark text-white min-vh-100" : "bg-white text-dark min-vh-100"}>
       <button
         type="button"
-        className={darkMode ? "btn btn-light" : "btn btn-dark"}
+        className={darkMode ? "btn btn-light m-1" : "btn btn-dark m-1"}
         aria-label="Dark Mode"
         onClick={changeDarkMode}
       >

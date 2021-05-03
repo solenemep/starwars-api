@@ -18,17 +18,17 @@ function App() {
   )
 
   return (
-    <section className="container py-5">
-      <DarkMode>
 
+    <DarkMode>
+      <section className="container py-5">
         <Select selectApi={selectApi} />
         {api === "films" && (<Film />)}
         {api === "planets" && (<Planet />)}
         {api === "peoples" && (<People />)}
         {api === "starships" && (<Starship />)}
+      </section >
+    </DarkMode>
 
-      </DarkMode>
-    </section >
 
   );
 }

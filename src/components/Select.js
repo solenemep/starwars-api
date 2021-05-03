@@ -1,5 +1,4 @@
 import React from "react"
-import Film from "./Film"
 
 const FilmIcon = (props) => {
   const { children } = props

@@ -7,8 +7,10 @@ import Select from './components/Select'
 import React, { useState, useEffect } from 'react'
 
 function App() {
-  const [api, setApi] = useState(JSON.parse(localStorage.getItem('starWarsApi')) || 'planets')
+  const [active, setActive] = useState(false);
 
+
+  const [api, setApi] = useState(JSON.parse(localStorage.getItem('starWarsApi')) || 'planets')
   const selectApi = (event) => {
     setApi(event.target.value)
   }
@@ -20,12 +22,29 @@ function App() {
   return (
 
     <DarkMode>
-      <section className="container py-5">
-        <Select selectApi={selectApi} />
-        {api === "films" && (<Film />)}
-        {api === "planets" && (<Planet />)}
-        {api === "peoples" && (<People />)}
-        {api === "starships" && (<Starship />)}
+      <section className="container py-3">
+        <Select api={api} selectApi={selectApi} />
+        <div className="form-check form-switch mb-3">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="activate"
+            onChange={() => setActive((active) => !active)}
+          />
+          <label className="form-check-label" htmlFor="activate">
+            Activer
+        </label>
+        </div>
+        {active &&
+          <React.Fragment>
+            {api === "films" && (<Film />)}
+            {api === "planets" && (<Planet />)}
+            {api === "people" && (<People />)}
+            {api === "starships" && (<Starship />)}
+          </React.Fragment>
+        }
+
+
       </section >
     </DarkMode>
 
